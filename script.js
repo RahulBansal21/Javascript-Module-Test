@@ -91,7 +91,7 @@ if (localStorage.getItem("cmpScore")) {
       const aiWins = isWinner(results.reverse());
   
       if (userWins) {
-        resultText.innerText = "you win";
+        resultText.innerText = "you win against pc";
         resultDivs[0].classList.toggle("winner");
         keepScore(1);
         cmpKeepScore(-1);
@@ -99,14 +99,14 @@ if (localStorage.getItem("cmpScore")) {
         rulesBtn.style.right = "200px";
 
       } else if (aiWins) {
-        resultText.innerText = "you lose";
+        resultText.innerText = "you lose against pc";
         resultDivs[1].classList.toggle("winner");
         keepScore(-1);
         cmpKeepScore(1);
         nextBtn.style.display = "none";
         rulesBtn.style.right = "2rem";
       } else {
-        resultText.innerText = "draw";
+        resultText.innerText = "tie up";
         nextBtn.style.display = "none";
         rulesBtn.style.right = "2rem";
       }
