@@ -29,7 +29,7 @@ setTimeout(() => {
   
   const resultWinner = document.querySelector(".results__winner");
   const resultText = document.querySelector(".results__text");
-  
+  const agnt = document.querySelector(".agn");
   const playAgainBtn = document.querySelector(".play-again");
   const nextBtn = document.querySelector(".next");
   const rulesBtn = document.querySelector(".rules-btn");
@@ -91,24 +91,27 @@ if (localStorage.getItem("cmpScore")) {
       const aiWins = isWinner(results.reverse());
   
       if (userWins) {
-        resultText.innerText = "you win against pc";
+        resultText.innerText = "you win";
         resultDivs[0].classList.toggle("winner");
         keepScore(1);
         cmpKeepScore(-1);
         nextBtn.style.display = "block";
         rulesBtn.style.right = "200px";
+        agnt.innerText = "against pc";
 
       } else if (aiWins) {
-        resultText.innerText = "you lose against pc";
+        resultText.innerText = "you lost";
         resultDivs[1].classList.toggle("winner");
         keepScore(-1);
         cmpKeepScore(1);
         nextBtn.style.display = "none";
         rulesBtn.style.right = "2rem";
+          agnt.innerText = "against pc";
       } else {
         resultText.innerText = "tie up";
         nextBtn.style.display = "none";
         rulesBtn.style.right = "2rem";
+        agnt.innerText = "";
       }
       resultWinner.classList.toggle("hidden");
       resultsDiv.classList.toggle("show-winner");
